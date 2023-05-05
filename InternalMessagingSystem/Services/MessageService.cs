@@ -1,6 +1,6 @@
 namespace InternalMessagingSystem.Services;
 
-public class MessageService
+public class MessageService : IMessageService
 {
     private readonly MessageStore _messageStore;
 
