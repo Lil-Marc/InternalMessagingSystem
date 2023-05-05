@@ -123,7 +123,4 @@ public class MessageServiceTests
         Assert.Equal(receiver.Id, sortedMessages[3].ReceiverId);
         Assert.Equal(now.AddSeconds(3), sortedMessages[3].Timestamp);
     }
-
-
-
 }
