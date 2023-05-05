@@ -1,50 +1,42 @@
 # Internal Messaging System Version1.1📱
 
-The Internal Messaging System is a simple yet effective system that allows users to send, receive, and delete messages. It features a `User` class to define users, a `Message` class to define messages, a `MessageStore` class to store and manage messages, and a `MessageService` class to provide an interface for users to interact with the system.
+The Internal Messaging System is a simple yet effective system for enabling users to send, receive, and delete messages. It features a `User` class for defining users, a `Message` class for defining messages, a `MessageStore` class for storing and managing messages, and a `MessageService` class to provide an interface for users to interact with the system.
 
 ## Preface 🔥
 
-After completing all the features I didn't think it was a complex project, so I did an iteration to make the project as readable and scalable as I could, and I will briefly explain my main improvements and thoughts on the project
+After implementing all the features, I undertook an iteration to make the project as readable and scalable as possible. Below, I will briefly explain my main improvements and the thought processes behind them.
 
-### Code Comments（readable）
-I add more detailed comments to sub-code to help other developers understand my code more easily. This includes classes, methods and possibly complex sections
+### Code Comments (Readability) 📝
 
-### Encapsulation（scalable）
-I did a version iteration after I finished implementing all the features and I created a MessageStore
-And I moved `_messageStorage` and `_messageIdCounter` to this new class
+To facilitate other developers' understanding of my code, I have added detailed comments to classes, methods, and potentially complex sections.
 
-The MessageService will use the MessageStore to manage the message storage instead of directly managing `_messageStorage`  and `_messageIdCounter`. 
-The advantage of this is that if we want to change the message storage implementation later (for example, storing messages in the database instead of in memory),
-we only need to modify the MessageStore and not the MessageService.
+### Encapsulation (Scalability) 🚀
 
+After implementing all the features, I iterated on the version and created a `MessageStore` class. I moved `_messageStorage` and `_messageIdCounter` to this new class. Now, `MessageService` uses `MessageStore` to manage the message storage instead of directly managing `_messageStorage` and `_messageIdCounter`. This means that if we wish to alter the message storage implementation later (e.g., storing messages in a database instead of in-memory), we only need to modify `MessageStore`, not `MessageService`.
 
-#### Here I draw on the ideas of several design patterns
-1：Dependency Injection: In this pattern, an object (in this case MessageService) does not directly create the object it depends on (in this case MessageStore), 
-but receives these dependencies through constructors, methods, or properties. Dependency injection makes code more flexible, easier to test, and reduces coupling between codes.
+#### Below, I outline the design patterns that guided my thinking:
 
-2: Single Responsibility Principle (SOLID): This is one of the SOLID design principles which suggests that each class should have only one reason for change.
-Here, we separate the responsibilities of MessageService (handling the sending and receiving of messages) and MessageStore (managing the storage of messages) to make the responsibilities of each class clearer.
+1: Dependency Injection: This design pattern involves an object receiving its dependencies through constructors, methods, or properties, instead of directly creating them. In this project, `MessageService` doesn't directly create its dependency on `MessageStore`. Instead, it receives this dependency through its constructor. Dependency injection enhances code flexibility, simplifies testing, and reduces code coupling.
 
-3:Layered Design: In this design pattern, software is organized into multiple layers,
-each layer providing services to the layer above it and using the services of the layer below it. 
-In this case, MessageService is the business logic layer, which uses the data access layer services provided by MessageStore.
+2: Single Responsibility Principle (SOLID): This principle states that each class should only have one reason to change. In this project, I separated the responsibilities of `MessageService` (managing the sending and receiving of messages) and `MessageStore` (managing the storage of messages), which clarifies the responsibilities of each class.
 
-4:Strategy Pattern: If we decide to use MessageStore as an interface instead of a concrete class, we can replace different implementations of MessageStore as needed (for example, a version that uses memory, and a version that uses the database).
-This is an application of the policy pattern, allowing we to change the algorithm or policy at runtime as needed.
+3: Layered Design: In this design pattern, software is organized into multiple layers. Each layer provides services to the layer above it and uses the services of the layer below it. In this project, `MessageService` acts as the business logic layer and utilizes the data access layer services provided by `MessageStore`.
 
-### Exception Handling❎
-I add more detailed exception handling to the  `MessageService` methods to better handle potential error situations, such as a preliminary determination of whether the id is reasonable
+4: Strategy Pattern: By treating `MessageStore` as an interface instead of a concrete class, we gain the flexibility to replace different `MessageStore` implementations as required. For instance, we can have a version that stores messages in-memory and another that uses a database. This is an application of the Strategy pattern, which allows us to change the algorithm or policy at runtime.
 
-### Code scalablility
-Consider adding some additional properties to the Message class, such as a DateTime timestamp, to keep track of when messages are sent, and to sort incoming messages by time, this is a very simple improvement but it is an inspiration for my subsequent improvements
+### Exception Handling ❎
 
+I have incorporated detailed exception handling into `MessageService` methods to better manage potential error situations, such as making a preliminary determination of whether an id is reasonable.
 
-## Usage
+### Code Scalability 💡
 
+I considered adding some additional properties to the `Message` class, such as a DateTime timestamp, to track when messages are sent and to sort incoming messages by time. While this is a simple improvement, it served as an inspiration for my subsequent improvements.
+
+## Usage 🛠
 
 ### User👨
 
-The `User` class is used to represent users in the system. It has two properties: `Id` and `UserName`.
+The `User` class represents users in the system. It has two properties: `Id` and `UserName`.
 
 ```
 public class User
@@ -56,7 +48,7 @@ public class User
 
 ### Message📨
 
-The `Message` class is used to represent messages in the system. It has five properties: `Id`, `SenderId`, `ReceiverId`, `Content`, and `Timestamp`.
+The `Message` class represents messages in the system. It has five properties: `Id`, `SenderId`, `ReceiverId`, `Content`, and `Timestamp`.
 
 ```
 public class Message
@@ -69,12 +61,11 @@ public class Message
 }
 ```
 
-### MessageStore
+### MessageStore 📚
 
-The `MessageStore` class stores and manages messages. It provides methods to send a message, get messages for a user, delete a message for a user, and get messages for a user sorted by timestamp.
+The `MessageStore` class is responsible for storing and managing messages. It offers methods to send a message, retrieve messages for a user, delete a message for a user, and retrieve messages for a user sorted by timestamp.
 
 ```
-
 public class MessageStore
 {
     // Methods:
@@ -86,12 +77,11 @@ public class MessageStore
 }
 ```
 
-### MessageService
+### MessageService 📡
 
 The `MessageService` class provides an interface for users to interact with the system. It uses a `MessageStore` to manage messages and provides methods to send a message, get messages for a user, delete a message for a user, and get messages for a user sorted by timestamp.
 
 ```
-
 public class MessageService
 {
     // Methods:
@@ -102,12 +92,11 @@ public class MessageService
 }
 ```
 
-## Testing
+## Testing 🔬
 
 The system also includes a set of unit tests to verify its functionality. For example, here is a test that verifies the `GetMessagesSortedByTimestamp` method:
 
 ```
-
 [Fact]
 public void GetMessagesSortedByTimestamp_ReturnsMessagesInOrder()
 {
