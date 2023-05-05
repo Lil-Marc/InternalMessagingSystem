@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1ae17235_002D3b40_002D4d4b_002D95a3_002D3932f9f669a6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetMessagesSortedByTimestamp_ReturnsMessagesInOrder" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::69959AB9-552E-4C75-AF0C-4E6DE04D927D::net6.0::InternalMessagingSystem.UnitTests.MessageServiceTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=91ced887_002D8194_002D417e_002D826d_002Df4dd1a3ed9af/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SendMessage_WhenCalled_AddsMessageToReceiverMessages" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::69959AB9-552E-4C75-AF0C-4E6DE04D927D::net6.0::InternalMessagingSystem.UnitTests.MessageServiceTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

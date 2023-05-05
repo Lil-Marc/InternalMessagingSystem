@@ -1,0 +1,20 @@
+I did a version iteration after I finished implementing all the features and I created a MessageStore
+And I moved _messageStorage and _messageIdCounter to this new class
+
+The MessageService will use the MessageStore to manage the message storage instead of directly managing _messageStorage and _messageIdCounter. 
+The advantage of this is that if we want to change the message storage implementation later (for example, storing messages in the database instead of in memory),
+we only need to modify the MessageStore and not the MessageService.
+
+In this I have drawn on the following design pattern ideas：
+1：Dependency Injection: In this pattern, an object (in this case MessageService) does not directly create the object it depends on (in this case MessageStore), 
+but receives these dependencies through constructors, methods, or properties. Dependency injection makes code more flexible, easier to test, and reduces coupling between codes.
+
+2: Single Responsibility Principle (SOLID): This is one of the SOLID design principles which suggests that each class should have only one reason for change.
+Here, we separate the responsibilities of MessageService (handling the sending and receiving of messages) and MessageStore (managing the storage of messages) to make the responsibilities of each class clearer.
+
+3:Layered Design: In this design pattern, software is organized into multiple layers,
+each layer providing services to the layer above it and using the services of the layer below it. 
+In this case, MessageService is the business logic layer, which uses the data access layer services provided by MessageStore.
+
+4:Strategy Pattern: If we decide to use MessageStore as an interface instead of a concrete class, we can replace different implementations of MessageStore as needed (for example, a version that uses memory, and a version that uses the database).
+This is an application of the policy pattern, allowing we to change the algorithm or policy at runtime as needed.
