@@ -8,7 +8,7 @@ After implementing all the features, I undertook an iteration to make the projec
 
 ### Code Comments (Readability) 📝
 
-To facilitate other developers' understanding of my code, I have added detailed comments to classes, methods, and potentially complex sections.
+To facilitate the understanding of my code by other developers, I have added detailed comments to the classes, methods, and potentially complex sections of my project. Moreover, all variable names follow the camelCase naming convention, enhancing the readability and consistency throughout the codebase.
 
 ### Encapsulation (Scalability) 🚀
 
@@ -94,7 +94,7 @@ public class MessageService
 
 ## Testing 🔬
 
-The system also includes a set of unit tests to verify its functionality. For example, here is a test that verifies the `GetMessagesSortedByTimestamp` method:
+The system also includes a set of unit tests to verify its functionality.Here I use Xunit framework to test, For example, here is a test that verifies the `GetMessagesSortedByTimestamp` method:
 
 ```
 [Fact]
