@@ -1,3 +1,82 @@
+# Internal Messaging System Version1.2📱
+
+The Internal Messaging System (Version 1.2) is an advanced version of the previous system, now implemented with a fully functional API. It not only maintains the ability to send, receive, and delete messages, but also extends its functionality by integrating with a web API, enabling it to serve multiple clients and handle real-time communications more effectively.
+
+## Preface 🔥
+
+This version focuses on expanding the capabilities of the previous version and adapting it for an API environment. The main improvements are centered around the introduction of the API and the modifications required to accommodate this change.
+
+### API Introduction 🌐
+
+The most significant improvement in this version is the introduction of a web API. This change allows the system to interact with multiple clients and handle real-time communications more effectively. The API endpoints are designed following RESTful principles, enhancing their intuitiveness and usability.
+
+### Code Adjustments for API 💻
+
+To facilitate the API integration, several changes were made to the codebase. These changes include modifying the methods in the `MessageService` and `MessageStore` classes to interact seamlessly with the API, and the creation of a new `MessageController` class to handle HTTP requests and responses.
+
+### Exception Handling & Validation ❎
+
+Exception handling has been enhanced in this version to handle potential errors related to HTTP requests and responses. Additionally, validation checks have been added to ensure that the data received from the clients is in the correct format and meets the necessary criteria.
+
+### Code Scalability 💡
+
+The project's scalability has been further enhanced in this version. The separation of concerns between the service, store, and controller classes allows for easy modification and addition of new features. Furthermore, the API can be easily extended to include new endpoints as the project grows.
+
+## Usage 🛠
+
+### MessageController 🎛
+
+The `MessageController` class is a new addition in this version. It handles HTTP requests and responses by interacting with the `MessageService`. It has endpoints for sending a message, retrieving messages for a user, deleting a message for a user, and retrieving messages for a user sorted by timestamp.
+
+```
+kotlinCopy code
+public class MessageController : ControllerBase
+{
+    // HTTP Methods:
+    // POST SendMessage([FromBody] MessageDto messageDto)
+    // GET GetMessages(int userId)
+    // DELETE DeleteMessage(int messageId)
+    // GET GetMessagesSortedByTimestamp(int userId)
+}
+```
+
+### MessageDto 📨
+
+The `MessageDto` class is a Data Transfer Object used for communication with the API. It is similar to the `Message` class but designed to interact with HTTP requests and responses.
+
+```
+csharpCopy code
+public class MessageDto
+{
+    public int SenderId { get; set; }
+    public int ReceiverId { get; set; }
+    public string Content { get; set; }
+}
+```
+
+The other classes (`User`, `Message`, `MessageService`, `MessageStore`) remain as in Version 1.1 but have been adjusted to accommodate the API integration.
+
+## Testing 🔬
+
+The testing suite has been updated to include integration tests for the API. The tests verify the functionality of the API endpoints and the system's ability to handle HTTP requests and responses.
+
+```
+kotlinCopy code
+public class MessageControllerIntegrationTests
+{
+    // Tests:
+    // async Task SendMessageTest()
+    // async Task GetMessagesTest()
+    // async Task DeleteMessageTest()
+}
+```
+
+This concludes the summary of improvements and usage for the Internal Messaging System (Version 1.2).
+
+
+
+
+
 # Internal Messaging System Version1.1📱
 
 The Internal Messaging System is a simple yet effective system for enabling users to send, receive, and delete messages. It features a `User` class for defining users, a `Message` class for defining messages, a `MessageStore` class for storing and managing messages, and a `MessageService` class to provide an interface for users to interact with the system.
