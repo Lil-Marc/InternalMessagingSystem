@@ -15,6 +15,11 @@ public class UserController : ControllerBase
         _userService = userService;
     }
     
+    /// <summary>
+    /// Retrieves a user by their ID.
+    /// </summary>
+    /// <param name="userId">The ID of the user.</param>
+    /// <returns>The user with the specified ID, or an error message if the operation fails.</returns>
     [HttpGet("{userId}")]
     public ActionResult<User> GetUserById(int userId)
     {
@@ -38,6 +43,11 @@ public class UserController : ControllerBase
         }
     }
     
+    /// <summary>
+    /// Creates a new user.
+    /// </summary>
+    /// <param name="userDto">The data of the user to create.</param>
+    /// <returns>The created user, or an error message if the operation fails.</returns>
     [HttpPost]
     public ActionResult<User> CreateUser([FromBody] UserDto userDto)
     {
@@ -61,6 +71,9 @@ public class UserController : ControllerBase
     }
 
 }
+/// <summary>
+/// Data Transfer Object for user creation.
+/// </summary>
 public class UserDto    
 {
     public string UserName { get; set; }
