@@ -1,16 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web"> 
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <StartupObject>InternalMessagingSystem.Version1._2.Program</StartupObject>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
-      <PackageReference Include="xunit" Version="2.4.2" />
-      <PackageReference Include="xunit.core" Version="2.4.2" />
+
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.15" />
+
+        <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="6.0.15" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+        <PackageReference Include="Moq" Version="4.18.4" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="xunit" Version="2.4.2" />
+        <PackageReference Include="xunit.core" Version="2.4.2" />
     </ItemGroup>
 
 </Project>
